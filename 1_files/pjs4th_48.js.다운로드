@@ -1,0 +1,736 @@
+const NumberForm = n => {
+    return n.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 65248)).replace(/\D/g, '');
+}
+
+function onlyOneCheck(target) {
+    $(target).click(function () {
+        if ($(this).prop('checked')) {
+            $(target).prop('checked', false); // 一度全てのチェックを外す
+            $(this).prop('checked', true); // 自分のチェックを入れる
+        }
+    });
+}
+onlyOneCheck('#st01_1 .check');
+onlyOneCheck('#st01_2 .check');
+onlyOneCheck('#st01_3 .check');
+onlyOneCheck('#st01_4 .check');
+onlyOneCheck('#st01_5 .check');
+onlyOneCheck('#st01_6 .check');
+onlyOneCheck('#st02_1 .check');
+onlyOneCheck('#st02_2 .check');
+onlyOneCheck('#st02_3 .check');
+onlyOneCheck('#st02_4 .check');
+onlyOneCheck('#st02_5 .check');
+onlyOneCheck('#st02_6 .check');
+onlyOneCheck('#st03_1 .check');
+onlyOneCheck('#st03_2 .check');
+onlyOneCheck('#st03_3 .check');
+onlyOneCheck('#st03_4 .check');
+onlyOneCheck('#st03_5 .check');
+onlyOneCheck('#st03_6 .check');
+onlyOneCheck('#test .check');
+onlyOneCheck('#test2 .check');
+
+const chMax = 4;
+
+function chCount01(target) {
+    $(target).click(function () {
+        if ($(this).prop("checked")) {
+            let num = 0;
+            $(target).each(function () {
+                if ($(this).is(":checked")) {
+                    num++;
+                }
+            })
+            if (num > chMax) {
+                $(this).prop("checked", false);
+
+            }
+        }
+    });
+}
+chCount01('input[name="st01"]');
+chCount01('input[name="st02"]');
+chCount01('input[name="st03"]');
+
+
+var whif = 0;
+var bluf = 0;
+var gref = 0;
+var redf = 0;
+var oraf = 0;
+var purf = 0;
+var whi = 0;
+var blu = 0;
+var gre = 0;
+var red = 0;
+var ora = 0;
+var pur = 0;
+var wild = 0;
+
+//ブルフェス
+var dreampick = 0;
+$('#dream').change(function () {
+    dreampick = 0;
+    const num = parseInt(document.getElementById("dream").value);
+    if (isNaN(num)) {
+        dreampick = 0;
+    } else {
+        dreampick = parseInt(num) * 0.5;
+    }
+});
+
+var dreampick2 = 0;
+$('#dream2').change(function () {
+    dreampick2 = 0;
+    const num = parseInt(document.getElementById("dream2").value);
+    if (isNaN(num)) {
+        dreampick2 = 0;
+    } else {
+        dreampick2 = parseInt(num) * 1;
+    }
+});
+var Bfc = 0;
+$('#dream,#dream2').change(function () {
+    Bfc = 0;
+    const num = dreampick + dreampick2;
+    if (isNaN(num)) {
+        Bfc = 0;
+    } else {
+        if(num >=600){
+            Bfc = 12;
+        } else if (num >= 550) {
+            Bfc = 11;
+        } else if (num >= 500) {
+            Bfc = 10;
+        } else if (num >= 450) {
+            Bfc = 9;
+        } else if (num >= 400) {
+            Bfc = 8;
+        } else if (num >= 350) {
+            Bfc = 7;
+        } else if (num >= 300) {
+            Bfc = 6;
+        } else if (num >= 250) {
+            Bfc = 5;
+        } else if (num >= 200) {
+            Bfc = 4;
+        } else if (num >= 150) {
+            Bfc = 3;
+        } else if (num >= 100) {
+            Bfc = 2;
+        } else if (num >= 50) {
+            Bfc = 1;
+        } else {
+            Bfc = 0;
+        }
+    }
+    $('#dreSum').val(num);
+});
+
+//スタンプ
+var iroR = 75;
+var iroU = 100;
+var gacR = 25;
+var gacU = 50;
+var livC = 25;
+var livR = 50;
+var kizC = 25;
+var kizR = 50;
+var logC = 15;
+var logR = 25;
+//スタンプブルーム
+var st01_1Whi = 0;
+var st01_1Blu = 0;
+$('#st01_1').change(function () {
+    st01_1Whi = 0;
+    st01_1Blu = 0;
+    if ($('#st01_1 .check').is(':checked')) {
+        $('#st01_1 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "1a") {
+                st01_1Whi += iroR;
+            } else if (check == "1b") {
+                st01_1Whi += iroU;
+            } else if (check == "1c") {
+                st01_1Blu += iroR;
+            } else if (check == "1d") {
+                st01_1Blu += iroU
+            }
+        })
+
+    }
+});
+var st01_2Whi = 0;
+var st01_2Blu = 0;
+$('#st01_2').change(function () {
+    st01_2Whi = 0;
+    st01_2Blu = 0;
+    if ($('#st01_2 .check').is(':checked')) {
+        $('#st01_2 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "2a") {
+                st01_2Whi += gacR;
+            } else if (check == "2b") {
+                st01_2Whi += gacU;
+            } else if (check == "2c") {
+                st01_2Blu += gacR;
+            } else if (check == "2d") {
+                st01_2Blu += gacU
+            }
+        })
+
+    }
+});
+var st01_3Whi = 0;
+var st01_3Blu = 0;
+$('#st01_3').change(function () {
+    st01_3Whi = 0;
+    st01_3Blu = 0;
+    if ($('#st01_3 .check').is(':checked')) {
+        $('#st01_3 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "3a") {
+                st01_3Whi += livC;
+            } else if (check == "3b") {
+                st01_3Whi += livR;
+            } else if (check == "3c") {
+                st01_3Blu += livC;
+            } else if (check == "3d") {
+                st01_3Blu += livR
+            }
+        })
+
+    }
+});
+var st01_4Whi = 0;
+var st01_4Blu = 0;
+$('#st01_4').change(function () {
+    st01_4Whi = 0;
+    st01_4Blu = 0;
+    if ($('#st01_4 .check').is(':checked')) {
+        $('#st01_4 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "4a") {
+                st01_4Whi += kizC;
+            } else if (check == "4b") {
+                st01_4Whi += kizR;
+            } else if (check == "4c") {
+                st01_4Blu += kizC;
+            } else if (check == "4d") {
+                st01_4Blu += kizR
+            }
+        })
+
+    }
+});
+var st01_5Whi = 0;
+var st01_5Blu = 0;
+$('#st01_5').change(function () {
+    st01_5Whi = 0;
+    st01_5Blu = 0;
+    if ($('#st01_5 .check').is(':checked')) {
+        $('#st01_5 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "5a") {
+                st01_5Whi += logC;
+            } else if (check == "5b") {
+                st01_5Whi += logR;
+            } else if (check == "5c") {
+                st01_5Blu += logC;
+            } else if (check == "5d") {
+                st01_5Blu += logR
+            }
+        })
+
+    }
+});
+
+//スタンプコネクト(推測)
+var st02_1Whi = 0;
+var st02_1Blu = 0;
+$('#st02_1').change(function () {
+    st02_1Whi = 0;
+    st02_1Blu = 0;
+    if ($('#st02_1 .check').is(':checked')) {
+        $('#st02_1 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "1a") {
+                st02_1Whi += iroR;
+            } else if (check == "1b") {
+                st02_1Whi += iroU;
+            } else if (check == "1c") {
+                st02_1Blu += iroR;
+            } else if (check == "1d") {
+                st02_1Blu += iroU
+            }
+        })
+
+    }
+});
+var st02_2Whi = 0;
+var st02_2Blu = 0;
+$('#st02_2').change(function () {
+    st02_2Whi = 0;
+    st02_2Blu = 0;
+    if ($('#st02_2 .check').is(':checked')) {
+        $('#st02_2 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "2a") {
+                st02_2Whi += gacR;
+            } else if (check == "2b") {
+                st02_2Whi += gacU;
+            } else if (check == "2c") {
+                st02_2Blu += gacR;
+            } else if (check == "2d") {
+                st02_2Blu += gacU
+            }
+        })
+
+    }
+});
+var st02_3Whi = 0;
+var st02_3Blu = 0;
+$('#st02_3').change(function () {
+    st02_3Whi = 0;
+    st02_3Blu = 0;
+    if ($('#st02_3 .check').is(':checked')) {
+        $('#st02_3 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "3a") {
+                st02_3Whi += livC;
+            } else if (check == "3b") {
+                st02_3Whi += livR;
+            } else if (check == "3c") {
+                st02_3Blu += livC;
+            } else if (check == "3d") {
+                st02_3Blu += livR
+            }
+        })
+
+    }
+});
+var st02_4Whi = 0;
+var st02_4Blu = 0;
+$('#st02_4').change(function () {
+    st02_4Whi = 0;
+    st02_4Blu = 0;
+    if ($('#st02_4 .check').is(':checked')) {
+        $('#st02_4 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "4a") {
+                st02_4Whi += kizC;
+            } else if (check == "4b") {
+                st02_4Whi += kizR;
+            } else if (check == "4c") {
+                st02_4Blu += kizC;
+            } else if (check == "4d") {
+                st02_4Blu += kizR
+            }
+        })
+
+    }
+});
+var st02_5Whi = 0;
+var st02_5Blu = 0;
+$('#st02_5').change(function () {
+    st02_5Whi = 0;
+    st02_5Blu = 0;
+    if ($('#st02_5 .check').is(':checked')) {
+        $('#st02_5 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "5a") {
+                st02_5Whi += logC;
+            } else if (check == "5b") {
+                st02_5Whi += logR;
+            } else if (check == "5c") {
+                st02_5Blu += logC;
+            } else if (check == "5d") {
+                st02_5Blu += logR
+            }
+        })
+
+    }
+});
+
+//スタンプチア―
+var st03_1Whi = 0;
+var st03_1Blu = 0;
+$('#st03_1').change(function () {
+    st03_1Whi = 0;
+    st03_1Blu = 0;
+    if ($('#st03_1 .check').is(':checked')) {
+        $('#st03_1 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "1a") {
+                st03_1Whi += iroR;
+            } else if (check == "1b") {
+                st03_1Whi += iroU;
+            } else if (check == "1c") {
+                st03_1Blu += iroR;
+            } else if (check == "1d") {
+                st03_1Blu += iroU
+            }
+        })
+
+    }
+});
+var st03_2Whi = 0;
+var st03_2Blu = 0;
+$('#st03_2').change(function () {
+    st03_2Whi = 0;
+    st03_2Blu = 0;
+    if ($('#st03_2 .check').is(':checked')) {
+        $('#st03_2 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "2a") {
+                st03_2Whi += gacR;
+            } else if (check == "2b") {
+                st03_2Whi += gacU;
+            } else if (check == "2c") {
+                st03_2Blu += gacR;
+            } else if (check == "2d") {
+                st03_2Blu += gacU
+            }
+        })
+
+    }
+});
+var st03_3Whi = 0;
+var st03_3Blu = 0;
+$('#st03_3').change(function () {
+    st03_3Whi = 0;
+    st03_3Blu = 0;
+    if ($('#st03_3 .check').is(':checked')) {
+        $('#st03_3 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "3a") {
+                st03_3Whi += livC;
+            } else if (check == "3b") {
+                st03_3Whi += livR;
+            } else if (check == "3c") {
+                st03_3Blu += livC;
+            } else if (check == "3d") {
+                st03_3Blu += livR
+            }
+        })
+
+    }
+});
+var st03_4Whi = 0;
+var st03_4Blu = 0;
+$('#st03_4').change(function () {
+    st03_4Whi = 0;
+    st03_4Blu = 0;
+    if ($('#st03_4 .check').is(':checked')) {
+        $('#st03_4 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "4a") {
+                st03_4Whi += kizC;
+            } else if (check == "4b") {
+                st03_4Whi += kizR;
+            } else if (check == "4c") {
+                st03_4Blu += kizC;
+            } else if (check == "4d") {
+                st03_4Blu += kizR
+            }
+        })
+
+    }
+});
+var st03_5Whi = 0;
+var st03_5Blu = 0;
+$('#st03_5').change(function () {
+    st03_5Whi = 0;
+    st03_5Blu = 0;
+    if ($('#st03_5 .check').is(':checked')) {
+        $('#st03_5 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "5a") {
+                st03_5Whi += logC;
+            } else if (check == "5b") {
+                st03_5Whi += logR;
+            } else if (check == "5c") {
+                st03_5Blu += logC;
+            } else if (check == "5d") {
+                st03_5Blu += logR
+            }
+        })
+
+    }
+});
+
+//プレミアムプレゼントガチャ
+var preWhiF = 0;
+var preBluF = 0;
+var preGreF = 0;
+var preRedF = 0;
+var preOraF = 0;
+var prePurF = 0;
+$('#pre').change(function () {
+    preWhiF = 0;
+    preBluF = 0;
+    preGreF = 0;
+    preRedF = 0;
+    preOraF = 0;
+    prePurF = 0;
+    const preF = 1; //獲得可能枚数
+    if ($('#pre .check').is(':checked')) {
+        $('#pre .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "バチャ") {
+                preWhiF += preF;
+            } else if (check == "レオニ") {
+                preBluF += preF;
+            } else if (check == "モア") {
+                preGreF += preF;
+            } else if (check == "ビビバス") {
+                preRedF += preF;
+            } else if (check == "ワン") {
+                preOraF += preF;
+            } else if (check == "ナイト") {
+                prePurF += preF;
+            }
+        })
+
+    }
+});
+
+//イベント交換所
+var evechWhi = 0;
+var evechBlu = 0;
+var evechGre = 0;
+var evechRed = 0;
+var evechOra = 0;
+var evechPur = 0;
+var evechGet = 50; //最大交換可能枚数
+//第1期
+$('#eveCh1').change(function () {
+    evechRed = 0;
+    evechGre = 0;
+    if ($('#eveCh1 .check').is(':checked')) {
+        $('#eveCh1 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "green") {
+                evechGre += evechGet;
+            } else if (check == "red") {
+                evechRed += evechGet;
+            }
+        })
+
+    }
+});
+//第2期
+$('#eveCh2').change(function () {
+    evechOra = 0;
+    evechPur = 0;
+    if ($('#eveCh2 .check').is(':checked')) {
+        $('#eveCh2 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "orange") {
+                evechOra += evechGet;
+            } else if (check == "purple") {
+                evechPur += evechGet;
+            }
+        })
+
+    }
+});
+//第3期
+$('#eveCh3').change(function () {
+    evechWhi = 0;
+    evechBlu = 0;
+    if ($('#eveCh3 .check').is(':checked')) {
+        $('#eveCh3 .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "white") {
+                evechWhi += evechGet;
+            } else if (check == "blue") {
+                evechBlu += evechGet;
+            }
+        })
+
+    }
+});
+
+//イベントランキング
+var rankWhi = 0;
+var rankBlu = 0;
+var rankGre = 0;
+var rankRed = 0;
+var rankOra = 0;
+var rankPur = 0;
+//第1期
+$('#rank1').change(function () {
+    rankGre = 0;
+    rankRed = 0;
+    var check = Number($('#rank1 option:selected').val());
+    rankGre += check;
+    rankRed += check;
+});
+//第2期
+$('#rank2').change(function () {
+    rankOra = 0;
+    rankPur = 0;
+    var check = Number($('#rank2 option:selected').val());
+    rankOra += check;
+    rankPur += check;
+});
+//第3期
+$('#rank3').change(function () {
+    rankWhi = 0;
+    rankBlu = 0;
+    var check = Number($('#rank3 option:selected').val());
+    rankWhi += check;
+    rankBlu += check;
+});
+
+//ハピネスパッケージガチャ
+var hap = 0;
+$('#hapiness').change(function () {
+    hap = 0;
+    if ($('#hapiness .check').is(':checked')) {
+        $('#hapiness .check:checked').each(function () {
+            var check = $(this).val();
+            hap += parseInt(check);
+        })
+
+    }
+});
+
+//その他
+var aotWhi = 0;
+var aotBlu = 0;
+var aotGre = 0;
+var aotRed = 0;
+var aotOra = 0;
+var aotPur = 0;
+$('#allOther').change(function () {
+    aotWhi = 0;
+    aotBlu = 0;
+    aotGre = 0;
+    aotRed = 0;
+    aotOra = 0;
+    aotPur = 0;
+    const LN = 50;
+    const LP = 100;
+    if ($('#allOther .check').is(':checked')) {
+        $('#allOther .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "ライブ") {
+                aotRed += LN;
+                aotPur += LN;
+                aotOra += LN;
+            } else if (check == "プレミアム") {
+                aotWhi += LP;
+                aotBlu += LP;
+                aotGre += LP;
+                aotRed += LP;
+                aotOra += LP;
+                aotPur += LP;
+            } else if (check == "ログイン") {
+                aotWhi += LN;
+                aotBlu += LN;
+                aotGre += LN;
+            }
+        })
+
+    }
+});
+
+var checkiSum = 0;
+$('#test').change(function () {
+    checkiSum = 0;
+    if ($('#test .check').is(':checked')) {
+        $('#test .check:checked').each(function () {
+            var check = $(this).val();
+            if (check == "la") {
+                checkiSum += 21;
+            } else if (check == "lb") {
+                checkiSum += 39;
+            } else if (check == "lc") {
+                checkiSum += 58;
+            }
+        })
+
+    }
+});
+var test2 = 0;
+$('#test2').change(function () {
+    test2 = 0;
+    if ($('#test2 .check').is(':checked')) {
+        $('#test2 .check:checked').each(function () {
+            var check = $(this).val();
+            test2 += parseInt(check);
+        })
+
+    }
+});
+
+$('#st01_1,#st01_2,#st01_3,#st01_4,#st01_5,#st02_1,#st02_2,#st02_3,#st02_4,#st02_5,#st03_1,#st03_2,#st03_3,#st03_4,#st03_5,#dream,#dream2,#pre,#allOther,#hapiness,#eveCh1,#eveCh2,#eveCh3,#rank1,#rank2,#rank3').change(function () {
+    //青フラワー
+    let bluFullF = [preBluF];
+    let bluSumF = bluFullF.reduce(function (a, b) { return a + b; });
+    $('#bluSumF').val(bluSumF);
+    $('#bluSumF2').val(bluSumF);
+    //白フラワー
+    let whiFullF = [preWhiF];
+    let whiSumF = whiFullF.reduce(function (a, b) { return a + b; });
+    $('#whiSumF').val(whiSumF);
+    $('#whiSumF2').val(whiSumF);
+    //緑フラワー
+    let greFullF = [preGreF];
+    let greSumF = greFullF.reduce(function (a, b) { return a + b; });
+    $('#greSumF').val(greSumF);
+    $('#greSumF2').val(greSumF);
+    //赤フラワー
+    let redFullF = [preRedF];
+    let redSumF = redFullF.reduce(function (a, b) { return a + b; });
+    $('#redSumF').val(redSumF);
+    $('#redSumF2').val(redSumF);
+    //橙フラワー
+    let oraFullF = [preOraF];
+    let oraSumF = oraFullF.reduce(function (a, b) { return a + b; });
+    $('#oraSumF').val(oraSumF);
+    $('#oraSumF2').val(oraSumF);
+    //紫フラワー
+    let purFullF = [prePurF];
+    let purSumF = purFullF.reduce(function (a, b) { return a + b; });
+    $('#purSumF').val(purSumF);
+    $('#purSumF2').val(purSumF);
+    //ワイルド
+    let wildFull = [Bfc, hap];
+    let wildSumF = wildFull.reduce(function (a, b) { return a + b; });
+    $('#wildSumF').val(wildSumF);
+    $('#wildSumF2').val(wildSumF);
+    //白花びら
+    let whiFull = [st01_1Whi, st01_2Whi, st01_3Whi, st01_4Whi, st01_5Whi, aotWhi, evechWhi, rankWhi];
+    let whiSum = whiFull.reduce(function (a, b) { return a + b; });
+    $('#whiSum').val(whiSum);
+    $('#whiSum2').val(whiSum);
+    //青花びら
+    let bluFull = [st01_1Blu, st01_2Blu, st01_3Blu, st01_4Blu, st01_5Blu, aotBlu, evechBlu, rankBlu];
+    let bluSum = bluFull.reduce(function (a, b) { return a + b; });
+    $('#bluSum').val(bluSum);
+    $('#bluSum2').val(bluSum);
+    //緑花びら
+    let greFull = [st02_1Whi, st02_2Whi, st02_3Whi, st02_4Whi, st02_5Whi, aotGre, evechGre, rankGre];
+    let greSum = greFull.reduce(function (a, b) { return a + b; });
+    $('#greSum').val(greSum);
+    $('#greSum2').val(bluSum);
+    //赤花びら
+    let redFull = [st02_1Blu, st02_2Blu, st02_3Blu, st02_4Blu, st02_5Blu, aotRed, evechRed, rankRed];
+    let redSum = redFull.reduce(function (a, b) { return a + b; });
+    $('#redSum').val(redSum);
+    $('#redSum2').val(redSum);
+    //橙花びら
+    let oraFull = [st03_1Whi, st03_2Whi, st03_3Whi, st03_4Whi, st03_5Whi, aotOra, evechOra, rankOra];
+    let oraSum = oraFull.reduce(function (a, b) { return a + b; });
+    $('#oraSum').val(oraSum);
+    $('#oraSum2').val(oraSum);
+    //紫花びら
+    let purFull = [st03_1Blu, st03_2Blu, st03_3Blu, st03_4Blu, st03_5Blu, aotPur, evechPur, rankPur];
+    let purSum = purFull.reduce(function (a, b) { return a + b; });
+    $('#purSum').val(purSum);
+    $('#purSum2').val(purSum);
+});

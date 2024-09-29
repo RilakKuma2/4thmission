@@ -1,0 +1,44 @@
+document.addEventListener("DOMContentLoaded",()=>{
+    document.querySelectorAll(".detail").forEach(function(uu){
+        const expand = uu.querySelector(".expand");
+        const contents = uu.querySelector(".hidcontents");
+        expand.addEventListener("click",(ev) => {
+            ev.preventDefault();
+            if(uu.getAttribute("open") !== null){
+                const closing = contents.animate(closeani(contents),time);
+                closing.onfinish = () => {
+                    uu.removeAttribute("open");
+                };
+            }else{
+                uu.setAttribute("open","true");
+                const opening = contents.animate(openani(contents),time);
+            }
+         });
+    });
+});
+
+const time = {
+    duration:500,
+    easing:"ease-out",
+};
+
+const closeani = (contents) =>[
+{
+    opacity:1,
+    height: contents.offsetHeight +"px",
+},{
+    opacity:0,
+    height: 0,
+
+},];
+
+const openani = (contents) =>[
+    {
+        opacity:0,
+        height: 0,
+    },
+    {
+        opacity:1,
+        height: contents.offsetHeight +"px",
+    },
+];

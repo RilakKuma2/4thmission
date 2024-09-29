@@ -1,0 +1,176 @@
+onlyOneCheck('#b .check');
+onlyOneCheck('#c .check');
+onlyOneCheck('#d .check');
+onlyOneCheck('#e .check');
+onlyOneCheck('#f .check');
+onlyOneCheck('#g .check');
+onlyOneCheck('#h .check');
+onlyOneCheck('#i .check');
+
+
+function onlyOneCheck(target) {
+    $(target).click(function () {
+        if ($(this).prop('checked')) {
+            $(target).prop('checked', false); // 一度全てのチェックを外す
+            $(this).prop('checked', true); // 自分のチェックを入れる
+        }
+    });
+}
+
+var checkaSum  = 0; 
+$('#a').change(function () {
+    checkaSum  = 0; 
+if ( $('#a .check').is(':checked')){
+    $('#a .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="ログイン"){
+            checkaSum += 96;
+            }else if(check =="イベント"){
+            checkaSum += 60;
+            }else if(check =="ライブ"){
+            checkaSum += 200;
+            }else if(check =="プレミアム"){
+            checkaSum += 800;
+        }
+    })
+ }}
+);
+
+var checkbSum  = 0; 
+$('#b').change(function () {
+    checkbSum  = 0; 
+if ($('#b .check').is(':checked')) {
+    $('#b .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkbSum += 23;
+            }else if(check =="lb"){
+            checkbSum += 39;
+            }else if(check =="lc"){
+            checkbSum += 48;
+        }
+    })
+
+}});
+
+var checkcSum  = 0; 
+$('#c').change(function () {
+    checkcSum  = 0; 
+if ($('#c .check').is(':checked')) {
+    $('#c .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkcSum += 27;
+            }else if(check =="lb"){
+            checkcSum += 50;
+            }else if(check =="lc"){
+            checkcSum += 79;
+        }
+    })
+
+}});
+
+var checkdSum  = 0; 
+$('#d').change(function () {
+    checkdSum  = 0; 
+if ($('#d .check').is(':checked')) {
+    $('#d .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkdSum += 27;
+            }else if(check =="lb"){
+            checkdSum += 49;
+            }else if(check =="lc"){
+            checkdSum += 83;
+        }
+    })
+
+}});
+
+var checkeSum  = 0;
+$('#e').change(function () {
+    checkeSum  = 0; 
+if ($('#e .check').is(':checked')) {
+    $('#e .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkeSum += 40;
+            }else if(check =="lb"){
+            checkeSum += 76;
+            }else if(check =="lc"){
+            checkeSum += 106;
+        }
+    })
+}});
+
+    var checkfSum  = 0; 
+$('#f').change(function () {
+    checkfSum  = 0; 
+if ($('#f .check').is(':checked')) {
+    $('#f .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkfSum += 28;
+            }else if(check =="lb"){
+            checkfSum += 53;
+            }else if(check =="lc"){
+            checkfSum += 92;
+        }
+    })
+
+}});
+
+var checkgSum  = 0; 
+$('#g').change(function () {
+    checkgSum  = 0; 
+if ($('#g .check').is(':checked')) {
+    $('#g .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkgSum += 51;
+            }else if(check =="lb"){
+            checkgSum += 533;
+            }else if(check =="lc"){
+            checkgSum += 635;
+        }
+    })
+
+}});
+
+var checkhSum  = 0; 
+$('#h').change(function () {
+    checkhSum  = 0; 
+if ($('#h .check').is(':checked')) {
+    $('#h .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkhSum += 29;
+            }else if(check =="lb"){
+            checkhSum += 48;
+            }else if(check =="lc"){
+            checkhSum += 86;
+        }
+    })
+
+}});
+
+var checkiSum  = 0; 
+$('#i').change(function () {
+    checkiSum  = 0; 
+if ($('#i .check').is(':checked')) {
+    $('#i .check:checked').each(function(){
+        var check= $(this).val();
+        if (check =="la"){
+            checkiSum += 21;
+            }else if(check =="lb"){
+            checkiSum += 39;
+            }else if(check =="lc"){
+            checkiSum += 58;
+        }
+    })
+
+}});
+
+$('#a,#b,#c,#d,#e,#f,#g,#h,#i').change(function () {
+    $('#total').val(checkaSum+checkbSum+checkcSum+checkdSum+checkeSum+checkfSum+checkgSum+checkhSum+checkiSum);
+});

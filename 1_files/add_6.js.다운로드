@@ -1,0 +1,62 @@
+$('.slider').slick({
+		autoplay: false,//自動的に動き出すか。初期値はfalse。
+		infinite: false,//スライドをループさせるかどうか。初期値はtrue。
+		slidesToShow: 2,//スライドを画面に3枚見せる
+		slidesToScroll: 2,//1回のスクロールで3枚の写真を移動して見せる
+		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
+		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
+		dots: true,//下部ドットナビゲーションの表示
+		responsive: [
+			
+		{
+			breakpoint: 426,//モニターの横幅が426px以下の見せ方
+			settings: {
+				slidesToShow: 1,//スライドを画面に1枚見せる
+				slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
+			}
+		}
+	]
+	});
+
+
+
+async function pcjs(){
+const pagecard = document.getElementsByClassName("pagecard");
+for ( let i = 0; i<pagecard.length; ++i){
+const url = document.getElementsByClassName("pagecard")[i].innerHTML;
+const res = await fetch(url);
+const text = await  res.text();
+      const el = new DOMParser().parseFromString(text, "text/html")
+      const headEls = await (el.head.children)
+      var title = await function sub(val){} 
+Array.from(headEls).map(function sub(val) {
+          const pro = val.getAttribute('property')
+          if (!pro) return;
+         if(pro === 'og:title'){
+            title =  val.getAttribute("content");
+            return title;}})
+var image = await function Image(val){} 
+Array.from(headEls).map(function sub(val) {
+          const pro = val.getAttribute('property')
+          if (!pro) return;
+         if(pro === 'og:image'){
+            image =  val.getAttribute("content");
+            return image;}})
+pagecard[i].innerHTML = "<div class='article_b'><a href='"+url+"'><div class='thumb'><img src='"+image+"'></div><div class='left-box'>"+title+"</div></a></div>";
+}}
+
+
+window.addEventListener('load', () => {
+
+const imgpop = document.getElementsByClassName("imgpop");
+for ( let i = 0; i<imgpop.length; i++){
+   const imgurl = document.getElementsByClassName("imgpop")[i].innerHTML;
+
+imgpop[i].innerHTML = "<a href='"+imgurl+"' data-lightbox='a'><img class='imgpop_cont' src='"+imgurl+"'></a>";
+}
+       })
+
+const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css';
+  document.head.appendChild(link);

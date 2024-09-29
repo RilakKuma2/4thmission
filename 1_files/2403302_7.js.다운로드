@@ -1,0 +1,123 @@
+var a1 = 0;
+$('#a1').change(function(){
+    a1 = 0;
+ var check =Number( $('#a1 option:selected').val());
+  a1 = check*400
+});
+var b1 = 0;
+$('#b1').change(function(){
+    b1 = 0;
+ var check =Number( $('#b1 option:selected').val());
+  b1 = check*100
+});
+var c1 = 0;
+$('#c1').change(function(){
+    c1 = 0;
+ var check =Number( $('#c1 option:selected').val());
+  c1 = check*50
+});
+var c2 = 0;
+$('#c2').change(function(){
+    c2 = 0;
+ var check =Number( $('#c2 option:selected').val());
+  c2 = check*50
+});
+var c3 = 0;
+$('#c3').change(function(){
+    c3 = 0;
+ var check =Number( $('#c3 option:selected').val());
+  c3 = check*50
+});
+var c4 = 0;
+$('#c4').change(function(){
+    c4 = 0;
+ var check =Number( $('#c4 option:selected').val());
+  c4 = check*50
+});
+var c5 = 0;
+$('#c5').change(function(){
+    c5 = 0;
+ var check =Number( $('#c5 option:selected').val());
+  c5 = check*50
+});
+var c6 = 0;
+$('#c6').change(function(){
+    c6 = 0;
+ var check =Number( $('#c6 option:selected').val());
+  c6 = check*50
+});
+var c7 = 0;
+$('#c7').change(function(){
+    c7 = 0;
+ var check =Number( $('#c7 option:selected').val());
+  c7 = check*50
+});
+var c8 = 0;
+$('#c8').change(function(){
+    c8 = 0;
+ var check =Number( $('#c8 option:selected').val());
+  c8 = check*50
+});
+var c9 = 0;
+$('#c9').change(function(){
+    c9 = 0;
+ var check =Number( $('#c9 option:selected').val());
+  c9 = check*50
+});
+var c10 = 0;
+$('#c10').change(function(){
+    c10 = 0;
+ var check =Number( $('#c10 option:selected').val());
+  c10 = check*50
+});
+var c11 = 0;
+$('#c11').change(function(){
+    c11 = 0;
+ var check =Number( $('#c11 option:selected').val());
+  c11 = check*50
+});
+var d1 = 0;
+$('#d1').change(function(){
+    d1 = 0;
+ var check =Number( $('#d1 option:selected').val());
+  d1 = check*10
+});
+var d2 = 0;
+$('#d2').change(function(){
+    d2 = 0;
+ var check =Number( $('#d2 option:selected').val());
+  d2 = check*10
+});
+var e1 = 0;
+$('#ee1').change(function(){
+    e1 = 0;
+ var check =Number( $('#ee1 option:selected').val());
+  e1 = check*200
+});
+var f1 = 0;
+$('#f1').change(function(){
+    f1 = 0;
+ var check =Number( $('#f1 option:selected').val());
+  f1 = check*2
+});
+var g1 = 0;
+$('#g1').change(function(){
+    g1 = 0;
+ var check =Number( $('#g1 option:selected').val());
+  g1 = check*15
+});
+var g2 = 0;
+$('#g2').change(function(){
+    g2 = 0;
+ var check =Number( $('#g2 option:selected').val());
+  g2 = check*15
+});
+var h1 = 0;
+$('#h1').change(function(){
+    h1 = 0;
+ var check =Number( $('#h1 option:selected').val());
+  h1 = check*1
+});
+$('#a1,#b1,#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#d1,#d2,#ee1,#f1,#g1,#g2,#h1').change(function () {
+    $('#total2').val(a1+b1+c1+c2+c3+c4+c5+c6+c7+c8+c9+c10+c11+d1+d2+e1+f1+g1+g2+h1);
+});
